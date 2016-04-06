@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 
 import socket
-import StringIO
+from io import StringIO
 import sys
 
 class WSGIServer(object):
@@ -28,7 +28,7 @@ class WSGIServer(object):
     def server_forever(self):
         listen_socket = self.listen_socket
         while True:
-            self.client_connection =, client_address = listen_socket.accept()
+            self.client_connection = client_address = listen_socket.accept()
             self.handle_one_request()
 
     def handle_one_request(self):
